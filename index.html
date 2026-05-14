@@ -28,18 +28,16 @@
     </style>
 </head>
 <body class="min-h-screen pb-20">
-    <!-- Navbar -->
     <nav class="sticky top-0 z-50 glass-card border-b border-white/5 p-5 flex justify-center items-center">
         <h1 class="text-2xl font-black tracking-tighter bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent uppercase italic">VALORA TU SETUP</h1>
     </nav>
 
     <div class="container mx-auto px-4 py-8 max-w-xl text-center">
         
-        <!-- VISTA 1: SUBIDA -->
         <div id="upload-view" class="space-y-8 animate-in fade-in duration-500">
             <div class="space-y-2">
-                <h2 class="text-4xl font-black tracking-tighter uppercase leading-none">¿TIENES AGUANTE?</h2>
-                <p class="text-zinc-500 font-medium italic">Sube tu setup y deja que nuestra IA lo destruya en segundos.</p>
+                <h2 class="text-4xl font-black tracking-tighter uppercase leading-none italic">¿DA PENA O QUÉ?</h2>
+                <p class="text-zinc-500 font-medium italic">Sube tu foto. Si no aguantas la verdad, no lo hagas.</p>
             </div>
 
             <div id="drop-zone" class="relative glass-card rounded-[3.5rem] p-12 border-2 border-dashed border-zinc-800 hover:border-indigo-500 transition-all cursor-pointer overflow-hidden group">
@@ -50,7 +48,7 @@
                     <div class="w-24 h-24 bg-indigo-500/10 rounded-full flex items-center justify-center mx-auto border border-indigo-500/20 group-hover:scale-110 transition-transform">
                         <svg class="w-12 h-12 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
-                    <p class="text-xl font-black uppercase tracking-tight italic text-indigo-400">Elegir Imagen</p>
+                    <p class="text-xl font-black uppercase tracking-tight italic text-indigo-400">Seleccionar Imagen</p>
                 </div>
 
                 <div id="preview-content" class="hidden relative">
@@ -63,7 +61,6 @@
             </button>
         </div>
 
-        <!-- VISTA 2: CARGANDO (30 SEGUNDOS) -->
         <div id="loading-view" class="hidden py-6 space-y-10 text-center">
             <div class="space-y-6">
                 <div class="relative w-32 h-32 mx-auto">
@@ -84,7 +81,6 @@
                 <p class="text-[10px] text-zinc-600 uppercase font-bold tracking-[0.2em]">Desbloqueando veredicto en 30s...</p>
             </div>
 
-            <!-- ANUNCIO DIRECTO -->
             <div class="glass-card p-6 rounded-[3rem] border border-indigo-500/30">
                 <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-black mb-4 italic">Publicidad Patrocinada</p>
                 <div class="w-full aspect-video bg-black/60 rounded-[2rem] border border-white/5 overflow-hidden flex items-center justify-center relative">
@@ -93,7 +89,6 @@
             </div>
         </div>
 
-        <!-- VISTA 3: RESULTADOS -->
         <div id="result-view" class="hidden space-y-8 animate-in slide-in-from-bottom-10 duration-700">
             <div class="glass-card rounded-[3.5rem] p-10 space-y-8 text-left relative">
                 
@@ -108,39 +103,31 @@
                     </div>
                 </div>
                 
-                <!-- Párrafo corto y agresivo -->
                 <div class="bg-indigo-500/5 p-8 rounded-[2.5rem] border border-indigo-500/10">
                     <p id="res-roast" class="text-lg text-zinc-100 font-medium italic leading-snug"></p>
                 </div>
 
-                <!-- Productos Amazon Afiliados -->
                 <div class="space-y-4">
-                    <h3 class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-2 italic">Necesitas esto urgentemente:</h3>
+                    <h3 class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-2 italic">Kit de Salvación (Amazon):</h3>
                     <div id="res-products" class="grid gap-3"></div>
                 </div>
 
-                <!-- COMPARTIR COMPLETO -->
                 <div class="pt-6 border-t border-white/5 space-y-6">
                     <p class="text-[10px] font-black text-center text-zinc-600 uppercase tracking-widest italic">Humilla a alguien más compartiendo</p>
                     <div class="flex flex-wrap justify-center gap-4">
-                        <!-- WhatsApp -->
-                        <button onclick="share('whatsapp')" class="share-btn p-4 bg-[#25D366]/10 text-[#25D366] rounded-2xl border border-[#25D366]/20 transition-transform active:scale-90" title="Compartir en WhatsApp">
+                        <button onclick="share('whatsapp')" class="share-btn p-4 bg-[#25D366]/10 text-[#25D366] rounded-2xl border border-[#25D366]/20 transition-transform active:scale-90" title="WhatsApp">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </button>
-                        <!-- X (Twitter) -->
-                        <button onclick="share('x')" class="share-btn p-4 bg-white/10 text-white rounded-2xl border border-white/20 transition-transform active:scale-90" title="Compartir en X">
+                        <button onclick="share('x')" class="share-btn p-4 bg-white/10 text-white rounded-2xl border border-white/20 transition-transform active:scale-90" title="X (Twitter)">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
                         </button>
-                        <!-- Reddit -->
-                        <button onclick="share('reddit')" class="share-btn p-4 bg-[#FF4500]/10 text-[#FF4500] rounded-2xl border border-[#FF4500]/20 transition-transform active:scale-90" title="Compartir en Reddit">
+                        <button onclick="share('reddit')" class="share-btn p-4 bg-[#FF4500]/10 text-[#FF4500] rounded-2xl border border-[#FF4500]/20 transition-transform active:scale-90" title="Reddit">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .875.18 1.185.472 1.2-.863 2.874-1.43 4.723-1.498l.815-3.777 2.504.529a1.25 1.25 0 0 1-.01.246c0 .688.562 1.249 1.25 1.249z"/></svg>
                         </button>
-                        <!-- Telegram -->
-                        <button onclick="share('telegram')" class="share-btn p-4 bg-[#0088cc]/10 text-[#0088cc] rounded-2xl border border-[#0088cc]/20 transition-transform active:scale-90" title="Compartir en Telegram">
+                        <button onclick="share('telegram')" class="share-btn p-4 bg-[#0088cc]/10 text-[#0088cc] rounded-2xl border border-[#0088cc]/20 transition-transform active:scale-90" title="Telegram">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.462 8.357c-.147 1.545-.797 5.375-1.125 7.126-.14.74-.413.988-.677 1.012-.573.053-1.008-.378-1.564-.742-.871-.57-1.362-.924-2.207-1.48-.977-.644-.344-.997.213-1.576.146-.151 2.684-2.461 2.733-2.671.006-.026.012-.125-.047-.178-.059-.052-.146-.034-.209-.02-.089.02-1.517.965-4.281 2.833-.406.278-.771.414-1.099.407-.361-.008-1.054-.204-1.57-.371-.634-.204-1.137-.313-1.093-.66.023-.181.272-.366.746-.554 2.915-1.268 4.857-2.106 5.828-2.512 2.774-1.161 3.35-1.363 3.725-1.37.082-.001.266.019.385.116.101.082.129.193.136.271.007.078.009.227-.001.35z"/></svg>
                         </button>
-                        <!-- Instagram (Copy Link) -->
-                        <button onclick="share('instagram')" class="share-btn p-4 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-2xl transition-transform active:scale-90" title="Copiar enlace para Instagram">
+                        <button onclick="share('instagram')" class="share-btn p-4 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-2xl transition-transform active:scale-90" title="Instagram">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.377.896.42.42.68.819.896 1.377.163.422.358 1.057.412 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.377-.42.42-.819.68-1.377.896-.422.163-1.057.358-2.227.412-1.266.058-1.646.07-4.85.07zM12 0C8.741 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.741 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126s1.384 1.078 2.126 1.384c.766.296 1.636.499 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384s1.078-1.384 1.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126S18.65.935 17.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4.162 4.162 0 110-8.324 4.162 4.162 0 010 8.324zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </button>
                     </div>
@@ -154,7 +141,7 @@
     </div>
 
     <script>
-        const apiKey = ""; 
+        const apiKey = ""; // La API KEY se configura en Vercel
         const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
         const AMAZON_TAG = "zonasetuppro-21";
         const TIEMPO_ESPERA = 30000; 
@@ -216,7 +203,10 @@
             }, 1000);
 
             try {
-                // PROMPT: RESPUESTAS CORTAS, AGRESIVAS Y GRACIOSAS (EN UN SOLO PÁRRAFO)
+                if (!apiKey) {
+                    throw new Error("Falta la API KEY en el código o en Vercel.");
+                }
+
                 const prompt = `Actúa como un crítico de setups extremadamente sarcástico, mordaz e inteligente. 
                 Analiza la foto y genera un veredicto de UN SOLO PÁRRAFO con exactamente 3 frases CORTAS y brutales. 
                 Sé seco y directo. Genera risas metiéndote con su falta de gusto, su suciedad o sus periféricos baratos.
@@ -236,8 +226,18 @@
                     })
                 });
 
+                if (!resp.ok) {
+                    const errData = await resp.json();
+                    console.error("Error API:", errData);
+                    throw new Error("Error en la respuesta de la API de Google.");
+                }
+
                 const json = await resp.json();
-                finalData = JSON.parse(json.candidates[0].content.parts[0].text);
+                let rawText = json.candidates[0].content.parts[0].text;
+                
+                // Limpiar posibles bloques de código markdown que meta la IA
+                rawText = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+                finalData = JSON.parse(rawText);
 
                 const elapsed = Date.now() - start;
                 const wait = Math.max(0, TIEMPO_ESPERA - elapsed);
@@ -248,6 +248,7 @@
                 }, wait);
 
             } catch (err) {
+                console.error("Error completo:", err);
                 alert("La IA está tan horrorizada que se ha bloqueado. Reintenta.");
                 location.reload();
             }
@@ -285,11 +286,10 @@
                 case 'telegram': window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`); break;
                 case 'reddit': window.open(`https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`); break;
                 case 'instagram': 
-                    // Copiar link al portapapeles
                     const el = document.createElement('textarea');
                     el.value = url;
                     document.body.appendChild(el);
-                    el.select();
+                    el.saxazzzzzelect();
                     document.execCommand('copy');
                     document.body.removeChild(el);
                     alert("¡Enlace copiado! Pégalo en tus Stories de Instagram 🔥");
